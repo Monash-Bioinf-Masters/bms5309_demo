@@ -6,13 +6,12 @@ For simple Bash commands, write them as you executed them:
 ```bash
 # Example bash command
 samtools view -h file.bam | head -20
+``` 
 
 ```markdown
 ## Alignment Step
 
 Here's how to run the alignment:
-
-```bash
 # Align reads using STAR
 STAR --genomeDir $GENOME_INDEX \
      --readFilesIn sample_R1.fastq sample_R2.fastq \
