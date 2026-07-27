@@ -62,13 +62,13 @@ fastqc WM1_R1.fastq.gz --outdir=fastqc_output/
 
 All fastQ files had good per-base sequence as indicated by high quality scores along the full length of the reads (Figure 1) b
 
-![FastQC Per-base Statistics](images/Example FastQC Sequence quality plot.png)
+![FastQC Per-base Statistics](images/Example%20FastQC%20Sequence%20quality%20plot.png)
 
 Figure 1: Per-base quality statistics from FastQC for reads in WM1_R1.fastq. 
 
 However, WM1_R1.fastq showed GC bias, as indicated by deviation from expected %GC distribution across reads (Figure 2).
 
-![FastQC GC Bias Plot](images/Example FastQC GC bias plot.png)
+![FastQC GC Bias Plot](images/Example%20FastQC%20GC%20bias%20plot.png)
 
 Figure 2: Per sequence GC content from FastQC for reads in WM1_R1.fastq. 
 
@@ -85,9 +85,6 @@ Read alignment was performed with STAR read aligner to map reads to the Mus musc
 *This is NOT the aligner you will be using. STAR shown for illustration purposes only.*
 
 ```markdown
-
-Here's how to run the alignment:
-# Align reads using STAR
 STAR --genomeDir /home/genomeIndex/GRCm39/ \
      --readFilesIn WM1_R1.fastq.gz WM1_R2.fastq.gz \
      --outFileNamePrefix ./aligned/
