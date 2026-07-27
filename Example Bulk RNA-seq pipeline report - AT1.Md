@@ -58,12 +58,19 @@ fastqc WM1_R1.fastq.gz --outdir=fastqc_output/
 .
 ```
 
-*Display and briefly comment on relevant results*
+*Display and briefly comment on relevant results. Number your figures, refer to them in the text and provide brief legends*
 
-All fastQ files had good per-base sequence byt WM1_R1.fastq showed GC bias.
+All fastQ files had good per-base sequence as indicated by high quality scores along the full length of the reads (Figure 1) b
 
+![FastQC Per-base Statistics](images/Example FastQC Sequence quality plot.png)
 
+Figure 1: Per-base quality statistics from FastQC for reads in WM1_R1.fastq. 
 
+However, WM1_R1.fastq showed GC bias, as indicated by deviation from expected %GC distribution across reads (Figure 2).
+
+![FastQC GC Bias Plot](images/Example FastQC GC bias plot.png)
+
+Figure 2: Per sequence GC content from FastQC for reads in WM1_R1.fastq. 
 
 ### 2. Adapter Trimming
 
@@ -88,7 +95,15 @@ STAR --genomeDir /home/genomeIndex/GRCm39/ \
 
 ### Add the rest of the pipeline steps
 
-*** Add sections for the remaining elements of your report
+__Provide R code for steps in the analysis requiring R__
+```R
+library(edgeR)
+transcript.counts <- read.delim("TableOfCounts.txt", row.names="Symbol")
+sample.groups <- factor(c(1,1,2,2))
+y <- DGEList(counts=transcript.counts,group=sample.groups)
+```
+
+***Add sections for the remaining elements of your report***
 
 ## Data Quality Assessment
 
