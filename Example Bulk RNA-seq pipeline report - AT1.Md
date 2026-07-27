@@ -1,4 +1,10 @@
+# Example RNA-sequencing Pipeline Report
+
 Here is a short exemplar outlining how to write and structure a document about a bioinformatics pipeline for RNA-sequencing analysis.
+
+## Summary/Overview
+
+### Displaying Commands
 
 You must clearly indicate which elements of the report are code:
 
