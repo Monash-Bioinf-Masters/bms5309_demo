@@ -4,13 +4,13 @@ Here is a short exemplar outlining how to write and structure a document about a
 
 *Comments in italics are for instruction only. They are NOT required to be in your final report*
 
-## Summary/Overview
+## RNA-Seq Pipeline Overview 
 
 *Begin with a brief description of your pipeline, its main steps, inputs and what it produces*
 
 This report describes a bioinformatics pipeline for analysing bulk RNA-sequencing from 4 samples of murine T-cells, two from black mice and two from white mice. Starting with raw FastQ files, it performs data QC and adapter trimming, aligns reads to the mouse reference genome, obtains transcript counts and verifies sample identity with a PCA plot. 
 
-## Input Data
+## Pipeline Description
 
 *List the input files used by your pipeline in this analysis. I've chosen to use a table but you may chose your own preferred format.*
 
@@ -21,17 +21,17 @@ This report describes a bioinformatics pipeline for analysing bulk RNA-sequencin
 | WhiteMouse_1 | WM1_R1.fastq.gz, WM1_R2.fastq.gz |
 | WhiteMouse_2 | WM2_R1.fastq.gz, WM2_R2.fastq.gz |
 
-## Implementation and Outputs
+## 1. Quality Control  
 
 *Describe each step in your pipeline, its inputs, outputs and parameters. The intention is to make it possible for others (i.e., your lecturers) to reproduce the same results you got.*
 
 *Numbered sub-headings will add clarity and structure to your report.
 
-### 1. Quality Control
+### Implementation
 
 *Briefly describe the purpose and aim of this stage of the pipeline. Provide software used and version*
 
-Read quality was assessed using FastQC (v0.12.1) to detect presence of possible sequence artefacts
+Read quality was assessed using FastQC (v0.12.1) to detect presence of possible quality issues or sequence artifacts.
 
 * Describe all commands required to reproduce your output.
 
@@ -57,6 +57,7 @@ fastqc WM1_R1.fastq.gz --outdir=fastqc_output/
 .
 .
 ```
+### Outputs
 
 *Display and briefly comment on relevant results. Number your figures, refer to them in the text and provide brief legends*
 
@@ -72,9 +73,11 @@ However, WM1_R1.fastq showed GC bias, as indicated by deviation from expected %G
 
 Figure 2: Per sequence GC content from FastQC for reads in WM1_R1.fastq. 
 
-### 2. Adapter Trimming
+## 2. Adapter Trimming
 
-### 3. Read alignment
+## 3. Read alignment
+
+### Implementation
 
 Read alignment was performed with STAR read aligner to map reads to the Mus musculus genome assembly GRCm39.
 
@@ -89,8 +92,9 @@ STAR --genomeDir /home/genomeIndex/GRCm39/ \
      --readFilesIn WM1_R1.fastq.gz WM1_R2.fastq.gz \
      --outFileNamePrefix ./aligned/
 ```
+### Outputs
 
-### Add the rest of the pipeline steps
+## Add the rest of the pipeline steps.....
 
 __Provide R code for steps in the analysis requiring R__
 ```R
@@ -100,10 +104,6 @@ sample.groups <- factor(c(1,1,2,2))
 y <- DGEList(counts=transcript.counts,group=sample.groups)
 ```
 
-***Add sections for the remaining elements of your report***
+***Conclude with brief summary and evaluation of your pipeline and its outputs***
 
-## Data Quality Assessment
-
-## Pipeline Performance
-
-## Summary and Next Steps
+## Summary and Critical Evalution
